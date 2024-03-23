@@ -2,11 +2,7 @@ const db = require('../db/index');
 
 const bandasController = {
     listadoBandas: function(req, res) {
-        let nombres = []
-        for (let i = 0; i < db.lista.length; i++) {
-            nombres.push(db.lista[i].nombre) 
-        }
-        return res.send(nombres)
+        res.render('listadoBandas', {lista: db.lista})
     }, 
 
     detalleBanda: function(req, res) {
