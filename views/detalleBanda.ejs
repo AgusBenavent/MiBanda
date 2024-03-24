@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+    </html><%- include('./partials/head') %>
 
+   
 <body>
+    <%- include('./partials/header') %>
    <h1>Detalles de la banda </h1>
    <ul>
-       <% for( let i = 0; i < index.length; i++ ) { %>
-           <li>Nombre: <%= index[i].nombre %></li>
-           <li>Integrantes: <%= index[i].integrantes %></li>
-           <li><a href="/genero/<%= index[i].genero %>">Genero:<%= index[i].genero %></a></li>
-           <li>topCanciones: <%= index[i].topCanciones %></li>
-           <li>Cover: <img src="/<%= index[i].cover %>" alt="<%= index[i].nombre %>"></li>
-           <li>Video: <iframe width="560" height="315" src="<%= index[i].video %>" frameborder="0" allowfullscreen></iframe></li>
+       <% for( let i = 0; i < detalle.length; i++ ) { %>
+        
+           <li>Nombre: <%= detalle[i].nombre %></li>
+           <li>Integrantes: <%= detalle[i].integrantes %></li>
+           <li><a href="/genero/<%= detalle[i].genero %>">Genero:<%= detalle[i].genero %></a></li>
+           <li>topCanciones: <%= detalle[i].topCanciones %></li>
+           <li>Cover: <img src="/<%= detalle[i].cover %>" alt="<%= detalle[i].nombre %>"></li>
+           <li>Video: <a href="<%= detalle[i].video %>"><h3><%= detalle[i].video %></h3></a></li>
 
           <% } %>
    </ul>

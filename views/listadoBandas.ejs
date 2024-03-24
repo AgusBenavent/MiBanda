@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('./partials/head') %>
+<body>
+
+
+  
+        <section>
+        <h1>Listado de Bandas</h1>
+        <ul>
+            <% for( let i=0; i < lista.length; i++ ) { %>
+                <li>
+                    
+                    <a href="/<%= lista[i].id %>"><h2><%= lista[i].nombre %></h2>
+                    <img src="/<%= lista[i].cover %>" alt="<%= lista[i].link %>">
+
+
+                </a>                   
+                </li>
+
+                <% } %>
+        </ul>
+        </section>
+        <%- include('./partials/footer') %>
+    </body>
+</html>

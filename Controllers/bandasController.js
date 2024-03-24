@@ -29,16 +29,16 @@ const bandasController = {
                 detalleBanda.push(db.lista[i])
                 return res.render("detalleBanda",{
                     lista:db.lista,
-                    index: detalleBanda,
-                    mensaje: "Más información",
-                    
-                    
-                })
+                    detalle: detalleBanda,
+                    mensaje: "Más información",})
+                
          }
+         else{
+            return res.render('idNoValido',{
+            mensaje:'No existe el id solicitado:'+id+ ", vuelva a intentarlo"}) 
         }
-        return res.render('idNoValido',{
-            mensaje:'No existe el id solicitado:'+id+ ", vuelva a intentarlo"
-        })  
+        }
+         
     }, 
     
 
@@ -53,24 +53,12 @@ const bandasController = {
                     mensaje: 'Genero',
                     Genero: genero,})
          }
+        else{
+            return res.render('IdNoValido',{
+                mensaje:'No existe el genero:'+genero+',intente nuevamente'
+            })
         }
-        return res.render('IdNoValido',{
-            mensaje:'No existe el genero:'+genero+',intente nuevamente'
-        })
-    },
-    
-    porGenero2: function(req, res) {
-        let genero = req.params.genero;
-        let generoBanda = []
-        for (let i = 0; i < db.lista.length; i++) {
-            if(req.params.genero == db.lista[i].genero){
-                generoBanda.push(db.lista[i])
-                return res.render("porGenero2",{
-                    lista: generoBanda,
-                    mensaje: 'Genero',
-                    Genero: genero,})
-         }}
         }
-    }
-module.exports = bandasController
-
+    }   
+}
+module.exports = bandasController;

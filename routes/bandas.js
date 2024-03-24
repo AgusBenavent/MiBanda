@@ -13,7 +13,7 @@ router.get('/:id', bandasController.detalleBanda);
 
 //Ruta parametrizada obligatoria que nos lleva al detalle del genero
 router.get('/genero/:genero', bandasController.porGenero);
-router.get('/genero', bandasController.porGenero2);
+
 
 module.exports = router
 
