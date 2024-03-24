@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('./partials/head') %>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+    <%- include('./partials/header') %>
+
+
+    <h1 class="heroes__h1">
+        <%= mensaje %>
+    </h1>
+//Esta si funciona
+<main>
+    <ul>
+        <% for( let i = 0; i < lista.length; i++ ) { %>
+            <li>Nombre: <%= lista[i].nombre %></li>  
+            <li>Integrantes: <%= lista[i].integrantes %></li>  
+            <li>Genero: <%= lista[i].genero %></li>  
+            <li>TopCanciones: <%= lista[i].topCanciones %></li>
+            <li>Cover:</li>
+            <a href="/<%= lista[i].id %>"><img src="<%= lista[i].cover %>" alt="bandas" width="250px" height="250px"></a> 
+            <li><a href="<%= lista[i].video %>" target="_blank"><%= lista[i].video %></a></li>
+        <% } %>
+     </ul>
+</main>
+
+<%- include('./partials/footer') %>
+
+</body>
 </html>

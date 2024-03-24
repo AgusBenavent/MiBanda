@@ -4,9 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var indexRouter = require('./routes/index');
+// let usersRouter = require('./routes/users');
 let bandasRouter = require('./routes/bandas');//Requerimos aca la ruta
+
 
 var app = express();
 
@@ -21,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', bandasRouter);
-app.use('/users', usersRouter);
+// app.use('/users', usersRouter);
 app.use('/bandas', bandasRouter);
 
 
@@ -40,5 +41,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;

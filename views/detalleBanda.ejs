@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+   <h1>Detalles de la banda </h1>
+   <ul>
+       <% for( let i = 0; i < index.length; i++ ) { %>
+           <li>Nombre: <%= index[i].nombre %></li>
+           <li>Integrantes: <%= index[i].integrantes %></li>
+           <li><a href="/genero/<%= index[i].genero %>">Genero:<%= index[i].genero %></a></li>
+           <li>topCanciones: <%= index[i].topCanciones %></li>
+           <li>Cover: <img src="/<%= index[i].cover %>" alt="<%= index[i].nombre %>"></li>
+           <li>Video: <iframe width="560" height="315" src="<%= index[i].video %>" frameborder="0" allowfullscreen></iframe></li>
+
+          <% } %>
+   </ul>
+   <%- include('./partials/footer') %>
+</body>
+</html>

@@ -1,42 +1,76 @@
 const db = require('../db/index');
 
 const bandasController = {
+    index:function(req,res){
+        return res.render("index",{
+            lista:db.lista,
+            mensaje:'Todas las bandas',
+             // aca guardo mi lista
+        })
+    },
+
     listadoBandas: function(req, res) {
         let nombres = []
         for (let i = 0; i < db.lista.length; i++) {
             nombres.push(db.lista[i].nombre) 
         }
-        return res.send(nombres)
+        return res.render("listadoBandas",{
+            lista:db.lista,
+            mensaje:'Todas las bandas',
+             // aca guardo mi lista
+        })
     }, 
 
-    detalleBanda: function(req, res) {
-        let ids = []
+    detalleBanda:function(req,res){
+        let id = req.params.id;
+        let detalleBanda = []
         for (let i = 0; i < db.lista.length; i++) {
-            ids.push(db.lista[i].id)
-            if(req.params.id == db.lista[i].id) {
-                return res.send(db.lista[i])
+            if(id == db.lista[i].id){
+                detalleBanda.push(db.lista[i])
+                return res.render("detalleBanda",{
+                    lista:db.lista,
+                    index: detalleBanda,
+                    mensaje: "Más información",
+                    
+                    
+                })
+         }
         }
-        }
-
-        if(ids.includes(Number(req.params.id)) == false){
-            return res.send(`No existe tal id`)
-        }
+        return res.render('idNoValido',{
+            mensaje:'No existe el id solicitado:'+id+ ", vuelva a intentarlo"
+        })  
     }, 
+    
 
     porGenero: function(req, res) {
-        let bandas = []
+        let genero = req.params.genero;
+        let generoBanda = []
         for (let i = 0; i < db.lista.length; i++) {
-            if(req.params.genero == db.lista[i].genero.toLowerCase()) {
-                bandas.push(db.lista[i])         
-            }  
-        }   
-
-        if(bandas.length == 0){
-            return res.send(`No existe tal genero`)
-        } else {
-            return res.send(bandas) 
+            if(req.params.genero == db.lista[i].genero){
+                generoBanda.push(db.lista[i])
+                return res.render("porGenero",{
+                    lista: generoBanda,
+                    mensaje: 'Genero',
+                    Genero: genero,})
+         }
+        }
+        return res.render('IdNoValido',{
+            mensaje:'No existe el genero:'+genero+',intente nuevamente'
+        })
+    },
+    
+    porGenero2: function(req, res) {
+        let genero = req.params.genero;
+        let generoBanda = []
+        for (let i = 0; i < db.lista.length; i++) {
+            if(req.params.genero == db.lista[i].genero){
+                generoBanda.push(db.lista[i])
+                return res.render("porGenero2",{
+                    lista: generoBanda,
+                    mensaje: 'Genero',
+                    Genero: genero,})
+         }}
         }
     }
-}
-
 module.exports = bandasController
+
