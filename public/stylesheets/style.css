@@ -25,6 +25,7 @@ h1{
 font-weight: 400;
 font-style: normal;
 text-align: center;
+color: black;
 }
 
 
@@ -47,10 +48,17 @@ img {
 p{
   text-align: center;
 }
+.barra{
+  background-color: #777;
+}
 
+.barra ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .barra ul li{
   display: inline-block;
-  background-color: #777;
   
 }
 
@@ -59,4 +67,12 @@ p{
   display: block;
   padding: 20px 20px;
   text-decoration: none;
+  border-radius: 40%;
+}
+.barra ul li a:hover{
+  background-color: rgb(94, 89, 89);
+}
+
+.item1{
+  float: right;
 }
