@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<h1>Detalle de banda</h1>
+    <body>
+        <h1>Listado de Bandas</h1>
+        <ul>
+            <% for(let i = 0; i < lista.length; i++) { %>
+                <div class="bandasOrdenadas">
+                    <li class="items">Nombre: <%= lista[i].nombre %></li>
+                    <section>
+                        <img class="foto" src="<%= lista[i].cover %>" alt="fotoBanda" width="300px">
+                    </section>
+                    <p class="items"> Genero: <%= lista[i].genero%> </p>
+                    <p class="items"> Integrantes: <%= lista[i].integrantes%> </p>
+                    <p class="items"> Top canciones: <%= lista[i].topCanciones%> </p>
+                    <p></p>
+    
+                </div>
+            <% } %>
+        </ul> 
+    </body>
+    </html>

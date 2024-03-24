@@ -9,12 +9,12 @@
     <h1>Listado de Bandas</h1>
     <ul>
         <% for(let i = 0; i < lista.length; i++) { %>
-            <div class="bandasOrdenadas">
+            <div class="todasLasBandas">
                 <li class="items">Nombre: <%= lista[i].nombre %></li>
-                <li class="items">Género: <%= lista[i].genero %></li>
-                <li class="items">Integrantes: <%= lista[i].integrantes %></li>
-                <li class="items">Top Canciones: <%= lista[i].topCanciones.join(", ") %></li>
-                <!-- Puedes incluir un enlace al video o la imagen si lo deseas -->
+                <section>
+                    <img class="foto" src="<%= lista[i].cover %>" alt="fotoBanda" width="300px">
+                </section>
+
             </div>
         <% } %>
     </ul> 
